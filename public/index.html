@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BME804 BioMEMS Midterm Study Guide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f4f8; color: #1a202c; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+  h1 { text-align: center; font-size: 2em; color: #1a365d; margin: 20px 0 5px; }
+  .subtitle { text-align: center; color: #4a5568; margin-bottom: 30px; font-size: 1.1em; }
+  .toc { background: #fff; border-radius: 12px; padding: 20px 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .toc h2 { color: #2b6cb0; margin-bottom: 10px; font-size: 1.3em; }
+  .toc a { color: #2b6cb0; text-decoration: none; display: block; padding: 3px 0; }
+  .toc a:hover { text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; padding: 25px 30px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .section h2 { color: #1a365d; border-bottom: 3px solid #3182ce; padding-bottom: 8px; margin-bottom: 15px; font-size: 1.5em; }
+  .section h3 { color: #2b6cb0; margin: 15px 0 8px; font-size: 1.2em; }
+  .section h4 { color: #4a5568; margin: 10px 0 5px; font-size: 1.05em; }
+  .key-point { background: #ebf8ff; border-left: 4px solid #3182ce; padding: 10px 15px; margin: 10px 0; border-radius: 0 8px 8px 0; }
+  .formula { background: #f7fafc; border: 1px solid #bee3f8; padding: 12px 18px; margin: 10px 0; border-radius: 8px; font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 1.05em; }
+  .warning { background: #fffaf0; border-left: 4px solid #ed8936; padding: 10px 15px; margin: 10px 0; border-radius: 0 8px 8px 0; }
+  .comparison { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  .comparison th { background: #2b6cb0; color: white; padding: 10px 12px; text-align: left; }
+  .comparison td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; }
+  .comparison tr:nth-child(even) { background: #f7fafc; }
+  ul { padding-left: 20px; margin: 5px 0; }
+  li { margin: 3px 0; }
+  .exam-tip { background: #f0fff4; border-left: 4px solid #38a169; padding: 10px 15px; margin: 10px 0; border-radius: 0 8px 8px 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+  .badge { display: inline-block; background: #3182ce; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; margin-right: 5px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📘 BME804 BioMEMS Midterm Study Guide</h1>
+<p class="subtitle">30 Multiple Choice Questions | Weeks 1–6 | Friday Feb 27, 9–10am</p>
+
+<div class="toc">
+  <h2>📋 Table of Contents</h2>
+  <a href="#s1">1. Introduction to BioMEMS</a>
+  <a href="#s2">2. Silicon Microfabrication I – From Sand to Microchips</a>
+  <a href="#s3">3. Silicon Microfabrication II – Deposition & Metrology</a>
+  <a href="#s4">4. Soft Lithography & Polymers</a>
+  <a href="#s5">5. Microfluidics Part I – Fundamentals</a>
+  <a href="#s6">6. Microfluidics Part II – Electrokinetics & Components</a>
+  <a href="#s7">7. Key Formulas Cheat Sheet</a>
+  <a href="#s8">8. Practice Questions (30 MCQs)</a>
+</div>
+
+<!-- ==================== SECTION 1 ==================== -->
+<div class="section" id="s1">
+  <h2>1. Introduction to BioMEMS</h2>
+
+  <h3>Definition</h3>
+  <div class="key-point">
+    <strong>BioMEMS</strong> = Biomedical Micro Electro-Mechanical Systems<br>
+    At least one dimension between <strong>100 nm to 100 µm</strong> (5 orders of magnitude).<br>
+    Integration of electrical and mechanical components on a single chip.
+  </div>
+
+  <h3>Materials</h3>
+  <p>Silicon, Glass, Polymers</p>
+
+  <h3>Key Applications</h3>
+  <table class="comparison">
+    <tr><th>Category</th><th>Examples</th></tr>
+    <tr><td>Lab Diagnostics</td><td>Microsensors, Lab-on-Chip (LOC), µTAS, DNA/protein microarrays, disease detection (cancer, COVID-19, glaucoma)</td></tr>
+    <tr><td>Personalized Treatment</td><td>Stem cell differentiation, cell cultures, drug discovery, tissue engineering</td></tr>
+    <tr><td>Drug Delivery</td><td>Implanted or transdermal, passive (perfusion) or active (actuator), precise release, patient-specific</td></tr>
+    <tr><td>Minimally Invasive</td><td>Catheters, endoscopes, swallowable capsules, injectable devices</td></tr>
+  </table>
+
+  <h3>Microfabrication Overview</h3>
+  <div class="two-col">
+    <div>
+      <h4>Hard Fabrication</h4>
+      <ul>
+        <li>Traditional approach for microchips</li>
+        <li>Silicon-based</li>
+        <li>Photolithography + etching/deposition</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Soft Fabrication</h4>
+      <ul>
+        <li>Molding, embossing, stamping, casting</li>
+        <li>Uses polymers & biological substances</li>
+        <li>Elastomeric materials</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Silicon Microfab Process Flow</h3>
+  <div class="key-point">
+    <strong>Mask Design → Photolithography → Micromachining → Bonding/Dicing/Packaging</strong><br>
+    Etching = subtractive; Deposition = additive
+  </div>
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<div class="section" id="s2">
+  <h2>2. Silicon Microfabrication I</h2>
+
+  <h3>From Sand to Microchips</h3>
+  <div class="key-point">
+    <strong>Quartzite gravel (SiO₂) → Arc Furnace → MGS (98-99% pure) → Distillation → EGS (ppb impurities) → Czochralski pulling → Si Ingots → Wafers</strong>
+  </div>
+
+  <h3>Silicon Properties</h3>
+  <ul>
+    <li>Non-metallic, carbon family, 27.7% of Earth's crust (2nd to O₂)</li>
+    <li><strong>3 forms:</strong> Crystalline (single crystal), Polycrystalline (raw material for MEMS), Amorphous (thin films)</li>
+    <li>MEMS materials: Single-crystal Si, Polysilicon, SiO₂ (insulation), Si₃N₄, TiN</li>
+  </ul>
+
+  <h3>MGS → EGS Process</h3>
+  <ul>
+    <li>MGS reacted with HCl → trichlorosilane (SiHCl₃) + impurities</li>
+    <li>Purified via <strong>fractional distillation</strong></li>
+    <li>SiHCl₃ → CVD with hydrogen: <strong>2SiHCl₃ + 2H₂ → 2Si + 6HCl</strong></li>
+  </ul>
+
+  <h3>Czochralski Method</h3>
+  <div class="key-point">
+    Crystal growth technology: seed crystal inserted into Si melt at <strong>1420°C</strong>, pulled upwards to form single crystal ingot. Developed by Jan Czochralski in <strong>1916</strong>.
+  </div>
+  <p><strong>Wafer production steps:</strong> Crystal pulling → Rod grinding → Wire cutting (slicing) → Lapping & etching → Polishing</p>
+  <p><strong>Wafer orientation:</strong> Miller indices (100), (111); Doping: n-type or p-type (e.g., Boron)</p>
+
+  <h3>Photolithography</h3>
+  <div class="key-point">
+    Transfer pattern from mask to substrate through photoresist. Resist is light-sensitive polymer deposited on wafer, exposed to UV through mask.
+  </div>
+
+  <h4>Photoresist Types</h4>
+  <table class="comparison">
+    <tr><th>Property</th><th>Positive Resist</th><th>Negative Resist</th></tr>
+    <tr><td>Mechanism</td><td>Chain scission (soluble)</td><td>Cross-linking (insoluble)</td></tr>
+    <tr><td>After exposure</td><td>Exposed dissolved away</td><td>Exposed remains on wafer</td></tr>
+    <tr><td>Examples</td><td>PMMA, DNQ</td><td>SU-8 (chemical amplification)</td></tr>
+  </table>
+
+  <h4>Spin Coating</h4>
+  <ul>
+    <li>High speed → uniform layer 0.5–2.5 µm thick, roughness &lt;1 nm</li>
+    <li>Soft bake (5–30 min): remove solvents, improve adherence</li>
+  </ul>
+
+  <h4>Exposure</h4>
+  <div class="formula">
+    <strong>Exposure Energy [mJ/cm²] = Mask Aligner Intensity [mW/cm²] × Time [s]</strong><br>
+    Example: SU-8 80 µm → needs 215 mJ/cm²; if MA intensity = 36 mW/cm² → t = 215/36 ≈ <strong>6 seconds</strong>
+  </div>
+
+  <h4>Resolution Limits</h4>
+  <div class="formula">
+    b<sub>min</sub> = (3/2) × √(λ(s + z/2))<br>
+    b<sub>min</sub> = minimum feature size; λ = UV wavelength; s = resist-mask gap; z = resist thickness
+  </div>
+  <p>Limits: Diffraction, mask alignment, wafer nonuniformities, contamination</p>
+
+  <h4>Develop</h4>
+  <ul>
+    <li>Positive: exposed dissolved, unexposed remains</li>
+    <li>Negative: unexposed dissolved, exposed remains</li>
+    <li>SU-8 80 µm: development time ≈ 7 min</li>
+  </ul>
+
+  <h4>Resist Stripping</h4>
+  <ul>
+    <li>Organic: carbon-based chemicals</li>
+    <li>Inorganic: sulphuric acid + oxidants @ 125°C</li>
+    <li>Dry: plasma etching (safer, less contamination)</li>
+  </ul>
+
+  <h3>Etching Methods</h3>
+  <table class="comparison">
+    <tr><th>Method</th><th>Type</th><th>Key Properties</th></tr>
+    <tr><td>Chemical Plasma Etching</td><td>Dry/Isotropic</td><td>Good selectivity, low etch rate, no liquid etchants (Cl₂, F₂, SF₆)</td></tr>
+    <tr><td>Physical Sputtering</td><td>Dry/Anisotropic</td><td>Poor selectivity, ion damage, directionality</td></tr>
+    <tr><td>Reactive Ion Etching (RIE)</td><td>Dry/Anisotropic</td><td>Combined physical+chemical, high etch rate, gases: Ar, Cl₂, SF₆, CF₄</td></tr>
+    <tr><td>DRIE</td><td>Dry/Anisotropic</td><td>Inductively-coupled RIE, high aspect ratio, Bosch process (SF₆ etch + C₄F₈ passivation)</td></tr>
+    <tr><td>Ion Beam Milling</td><td>Dry/Anisotropic</td><td>Focused inert ion beam, angled for increased etch rate</td></tr>
+    <tr><td>Wet Etching</td><td>Iso/Anisotropic</td><td>Faster than dry, KOH/EDP/TMAH. KOH: (100) etched at 54.7° to (111)</td></tr>
+  </table>
+
+  <h4>Key Etching Parameters</h4>
+  <div class="formula">
+    <strong>Etch Rate (ER)</strong> [Å/min]<br>
+    <strong>Selectivity</strong> S = ER<sub>mat1</sub> / ER<sub>mat2</sub><br>
+    <strong>Anisotropy</strong> A = 1 − (ER<sub>lateral</sub> / ER<sub>vertical</sub>)<br>
+    <strong>Aspect Ratio</strong> AR = Width / Height
+  </div>
+
+  <h4>Lift-off (Alternative to Etching)</h4>
+  <div class="key-point">
+    In etching: PR is a <strong>mask</strong>. In lift-off: PR is a <strong>mould</strong>. Opposite mask polarity. Used when adhesion is a problem or metal hard to etch (e.g., Pt). Evaporation preferred over sputtering (less sidewall deposition).
+  </div>
+</div>
+
+<!-- ==================== SECTION 3 ==================== -->
+<div class="section" id="s3">
+  <h2>3. Silicon Microfabrication II – Deposition & Metrology</h2>
+
+  <h3>Thin Film Materials</h3>
+  <table class="comparison">
+    <tr><th>Material</th><th>Key Properties & Uses</th></tr>
+    <tr><td>SiO₂</td><td>Insulating layer, mask, sacrificial layer. Via thermal oxidation or CVD. &lt;1 µm</td></tr>
+    <tr><td>Polysilicon</td><td>LPCVD. Dopants decrease resistivity. Piezoresistive sensors</td></tr>
+    <tr><td>Si₃N₄</td><td>CVD. Insulator, water/ionic barrier, structural integrity, hard mask for KOH etching</td></tr>
+    <tr><td>PSG</td><td>Softens at low T. Sacrificial layer → suspended structures. Passivation coat</td></tr>
+    <tr><td>Metal films</td><td>Au, Pt, Al, Cr, W. Sensors, interconnects, vias. Adhesion layers (Cr, Ni, Ti)</td></tr>
+  </table>
+
+  <h3>Thermal Oxidation</h3>
+  <ul>
+    <li>800–1200°C, thin layers (~1 µm), substrate Si → film SiO₂</li>
+    <li><strong>Dry:</strong> Si + O₂ → SiO₂ (good quality, high density)</li>
+    <li><strong>Wet:</strong> Si + 2H₂O → SiO₂ + 2H₂ (faster, lower quality)</li>
+    <li><strong>Pyrogenic:</strong> H₂ + O₂ heated → in-situ steam (faster, cleaner)</li>
+  </ul>
+
+  <h3>Deposition Techniques</h3>
+
+  <h4>Physical Vapor Deposition (PVD)</h4>
+  <table class="comparison">
+    <tr><th>Method</th><th>Mechanism</th><th>Pros</th><th>Cons</th></tr>
+    <tr><td>Thermal Evaporation</td><td>Solid heated in vacuum, recondenses on substrate</td><td>Simple</td><td>Limited materials</td></tr>
+    <tr><td>DC Sputtering</td><td>Ions strike target, dislodge material</td><td>No high T needed, uniform, easy control</td><td>Metals only, no dielectrics, contamination</td></tr>
+    <tr><td>RF Sputtering</td><td>Alternating field, like RIE setup</td><td>Conductive AND dielectric films</td><td>More complex</td></tr>
+  </table>
+
+  <h4>Chemical Vapor Deposition (CVD)</h4>
+  <div class="key-point">
+    Deposition of solid on heated surface from chemical reaction in vapor phase.<br>
+    Example: SiH₄ → Si + 2H₂ (polysilicon deposition)
+  </div>
+  <table class="comparison">
+    <tr><th>Variant</th><th>Properties</th></tr>
+    <tr><td>APCVD</td><td>Atmospheric pressure, low uniformity, higher impurities</td></tr>
+    <tr><td>LPCVD</td><td>0.1–10 Torr, 400–800°C, better uniformity & step coverage</td></tr>
+    <tr><td>PECVD</td><td>Plasma-enhanced, lower temperature, expensive, stress from ion bombardment</td></tr>
+  </table>
+  <p><strong>CVD Advantages:</strong> Fills 3D shapes, not line-of-sight, coatings up to several µm</p>
+  <p><strong>CVD Disadvantages:</strong> Needs T &gt; 600°C, toxic by-products, chemical precursors</p>
+
+  <h4>Atomic Layer Deposition (ALD)</h4>
+  <div class="key-point">
+    Single atomic layer per cycle (0.1–3 Å/cycle). Digital thickness control. Excellent uniformity on flat, 3D, or porous structures. Low defects, excellent adhesion, low stress. <br>
+    <strong>Disadvantage:</strong> Extremely slow, limited material selection.
+  </div>
+
+  <h3>Ion Implantation</h3>
+  <ul>
+    <li>Introduces dopant atoms into Si substrate at high energy</li>
+    <li>Fine control of depth; n-type/p-type well formation (CMOS)</li>
+    <li><strong>Etch-stop layer:</strong> e.g., Boron etch-stop for KOH etching to create well-defined structures</li>
+  </ul>
+
+  <h3>Metrology & Characterization</h3>
+  <table class="comparison">
+    <tr><th>Tool</th><th>Mechanism</th><th>Properties</th></tr>
+    <tr><td>Contact Profilometer</td><td>Probe moves vertically/laterally, measures force</td><td>10 nm–1 mm vertical features; may be destructive</td></tr>
+    <tr><td>Non-contact Profilometer</td><td>Optical interferometry (beam splitter)</td><td>Non-destructive, uses light interference</td></tr>
+    <tr><td>AFM</td><td>Cantilever tip near surface, deflection measured by laser</td><td>Contact and non-contact mode, atomic resolution</td></tr>
+  </table>
+</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<div class="section" id="s4">
+  <h2>4. Soft Lithography & Polymers</h2>
+
+  <h3>Polymers</h3>
+  <div class="key-point">
+    Macromolecules of repeated units (monomers), high molecular mass (&gt;1000 Da), created via polymerization.
+  </div>
+
+  <h4>Types of Polymers (Mechanical)</h4>
+  <table class="comparison">
+    <tr><th>Type</th><th>Properties</th><th>Examples</th></tr>
+    <tr><td>Thermoplastics</td><td>Linear/branched, soften/melt when heated, reusable</td><td>PMMA, PEEK, ABS (Lego!)</td></tr>
+    <tr><td>Elastomers</td><td>Lightly cross-linked, reversibly stretched</td><td>PDMS</td></tr>
+    <tr><td>Thermosets</td><td>Heavily cross-linked, rigid, once cured retain shape</td><td>SU-8, Parylene, epoxy resins</td></tr>
+  </table>
+
+  <h4>Polymerization Types</h4>
+  <ul>
+    <li><strong>Chain-reaction:</strong> Initiation → Propagation → Termination (free radicals)</li>
+    <li><strong>Step-reaction (Condensation):</strong> Functional groups react, release by-products (e.g., water)</li>
+    <li><strong>Photopolymerization:</strong> UV exposure (225–550 nm), photoinitiation breaks bonds</li>
+  </ul>
+
+  <h4>Polymer Advantages</h4>
+  <p>Ease of fabrication, clean-room free, low-cost, optical transparency, biocompatibility, ease of surface modification</p>
+  <h4>Polymer Limitations</h4>
+  <p>Feature size, environmental impact, scalability</p>
+
+  <h3>Key Polymer Properties</h3>
+  <div class="formula">
+    <strong>Dynamic Viscosity:</strong> µ = τ/γ̇ [Pa·s or cP] (τ = F/A, γ̇ = v/H)<br>
+    <strong>Kinematic Viscosity:</strong> ν = µ/ρ [m²/s]<br>
+    <strong>Young's Modulus:</strong> E = σ/ε (σ = F/A, ε = ΔL/L)<br>
+    <strong>Dielectric Constant:</strong> ε<sub>r</sub> = C<sub>m</sub>/C<sub>0</sub> (= 1 in vacuum)<br>
+    <strong>Refractive Index:</strong> n = sin(i)/sin(r) = c/v<sub>p</sub> (= 1 in air)<br>
+    <strong>Thermal Conductivity:</strong> k<sub>t</sub> = Q·d / (A·(T₂−T₁)) [W/(m·K)]
+  </div>
+
+  <h3>Common BioMEMS Polymers</h3>
+  <p>PDMS, Parylene, SU-8, Hydrogels, Biodegradable polymers, Polyimide</p>
+
+  <h3>Hydrogels</h3>
+  <div class="key-point">
+    3D networks of <strong>hydrophilic</strong> polymers that retain large amounts of water. Highly flexible (like natural tissue). E.g., contact lenses.<br>
+    <strong>Physical:</strong> electromagnetic interactions. <strong>Chemical:</strong> covalent bonds.<br>
+    <strong>Natural:</strong> alginate, elastin. <strong>Synthetic:</strong> PGA, PEG.
+  </div>
+  <p><strong>Key property:</strong> Volume change in response to stimuli (pH, temperature, ions, light, etc.) → swell or shrink</p>
+  <p><strong>Applications:</strong> Drug delivery, tissue engineering, LOC components, wound dressing, cell culture scaffolds</p>
+
+  <h3>Soft Fabrication Techniques</h3>
+  <table class="comparison">
+    <tr><th>Technique</th><th>Description</th></tr>
+    <tr><td>PDMS Stamp</td><td>Cast PDMS over Si master → cure → peel away to create stamp</td></tr>
+    <tr><td>Replica Molding</td><td>PDMS mold transfers 3D pattern; prepolymer cast/spin-coated on mold then peeled</td></tr>
+    <tr><td>µ Contact Printing</td><td>PDMS stamp transfers surface pattern to substrate</td></tr>
+    <tr><td>µ Transfer Molding</td><td>PDMS stamp transfers mold to substrate</td></tr>
+    <tr><td>MIMIC</td><td>PDMS mold forms channels; capillary forces fill them</td></tr>
+    <tr><td>Injection Molding</td><td>Softened polymer injected into mold; high throughput, large scale</td></tr>
+    <tr><td>Hot Embossing</td><td>Polymer pressed + heated above softening T, then cooled and demolded</td></tr>
+    <tr><td>Thermoforming</td><td>Polymer pressed by gas; lower T, easier demolding, low aspect ratios</td></tr>
+  </table>
+
+  <h4>Two-Photon Polymerization (2PP)</h4>
+  <div class="key-point">
+    <strong>Single-photon:</strong> One UV photon → polymerization along entire beam → layer-by-layer → resolution &gt;10 µm<br>
+    <strong>Two-photon (2PP):</strong> Two NIR photons absorbed simultaneously → only at focal point → 3D writing → resolution &lt;1 µm
+  </div>
+</div>
+
+<!-- ==================== SECTION 5 ==================== -->
+<div class="section" id="s5">
+  <h2>5. Microfluidics Part I – Fundamentals</h2>
+
+  <h3>What is Microfluidics?</h3>
+  <div class="key-point">
+    Study of fluid behavior and transport in <strong>microchannels</strong> (sub-mm). Key components of LOC and µTAS devices.
+  </div>
+  <p><strong>Advantages:</strong> Improved throughput, increased accuracy, lower cost, smaller reagent volume, shorter reaction time, parallel operation</p>
+
+  <h3>Substrates for Microfluidics</h3>
+  <table class="comparison">
+    <tr><th>Substrate</th><th>Pros</th><th>Cons</th></tr>
+    <tr><td>Silicon</td><td>Abundant, well-established processing, nm resolution, thermally stable, cost-effective (mass), sensor integration</td><td>Expensive/lengthy fab, NOT optically transparent, stiff, conductive</td></tr>
+    <tr><td>Glass</td><td>High resolution, optically transparent, low non-specific absorption, low conductivity, sensor integration</td><td>Fabrication difficulty, stiff, gas impermeability</td></tr>
+    <tr><td>Polymer (PDMS)</td><td>E = 1–4 MPa (compliant), optically transparent, biocompatible, O₂ permeable, easy to mold</td><td>Medium evaporation, bubbles, absorption of compounds, hydrophobic</td></tr>
+  </table>
+  <div class="exam-tip">💡 <strong>Hybrid solutions</strong> are common: e.g., Si for mixers/reaction chambers + PMMA for reservoirs/pumps/valves</div>
+
+  <h3>Channel Fabrication Methods</h3>
+  <ul>
+    <li>Si on Glass (etching + bonding)</li>
+    <li>SU-8 microchannel (multilayer SU-8 on Si)</li>
+    <li>Sacrificial layer technique</li>
+    <li>PDMS channel (soft lithography)</li>
+  </ul>
+
+  <h3>Three Design Modes</h3>
+  <table class="comparison">
+    <tr><th>Mode</th><th>Description</th></tr>
+    <tr><td>Continuous Flow</td><td>Continuous flow & mix; pressure pumps; sample filtration, cell sorting</td></tr>
+    <tr><td>Droplet-based</td><td>Microscale droplets; faster mixing; cell encapsulation; high throughput</td></tr>
+    <tr><td>Digital</td><td>Droplet-based, no flow, discrete sites, electrokinetics (EWOD)</td></tr>
+  </table>
+
+  <h3>Key Fundamentals</h3>
+
+  <h4>Surface Area to Volume Ratio (SAV)</h4>
+  <div class="formula">
+    For circular microchannel: <strong>SAV = 2/r</strong><br>
+    (SA = 2πrL, V = πr²L) → SAV drastically increases at microscale<br>
+    Surface effects dominant: viscous, electrostatic, surface tension
+  </div>
+
+  <h4>Reynolds Number</h4>
+  <div class="formula">
+    <strong>Re = ρvd / µ</strong><br>
+    ρ = density [kg/m³], v = velocity [m/s], d = channel size [m], µ = viscosity [Pa·s]<br>
+    <strong>Re &lt; 2000 → Laminar</strong> | Re &gt; 4000 → Turbulent<br>
+    In microfluidics, Re is typically very low → <strong>always laminar flow</strong>
+  </div>
+
+  <h4>Laminar Flow</h4>
+  <ul>
+    <li>Flow in thin layers/films</li>
+    <li>Driven by pressure gradient</li>
+    <li>Parabolic velocity distribution at cross-section</li>
+    <li><strong>No-slip condition:</strong> strong attractive forces at boundary (slip length L<sub>S</sub>)</li>
+  </ul>
+
+  <h4>Hagen-Poiseuille's Law</h4>
+  <div class="formula">
+    <strong>Velocity distribution:</strong> u<sub>x</sub>(r) = (ΔP / 4µl)(R² − r²)<br>
+    <strong>Flow rate:</strong> Q = πR⁴ΔP / 8µl<br>
+    (R = tube radius, ΔP = pressure drop, l = length, µ = viscosity)
+  </div>
+  <div class="warning">⚠️ This is for steady, incompressible, laminar flow through a circular tube only!</div>
+
+  <h4>Diffusion (Fick's Law)</h4>
+  <div class="formula">
+    <strong>J = −D × (∂C/∂x)</strong><br>
+    J = diffusion flux [g/m²·s], D = diffusion coefficient [m²/s], ∂C/∂x = concentration gradient<br>
+    <strong>D = k<sub>B</sub>T / (6πµr<sub>p</sub>)</strong> (Stokes-Einstein equation)<br>
+    <strong>Mean displacement:</strong> ⟨x²⟩ = 2Dt<br>
+    Example: w = 100 µm, D = 10⁻¹⁰ m²/s → t = 50 seconds
+  </div>
+
+  <h4>Mixing</h4>
+  <ul>
+    <li><strong>Passive:</strong> Diffusion-based, easy fabrication, slow</li>
+    <li><strong>Active:</strong> Pressure gradients, electric fields, integrated mixers; external power needed; complex fab</li>
+  </ul>
+</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<div class="section" id="s6">
+  <h2>6. Microfluidics Part II – Electrokinetics & Components</h2>
+
+  <h3>Surface Tension & Wetting</h3>
+  <div class="formula">
+    Surface tension (γ): boundary property, N/m<br>
+    <strong>Young's equation:</strong> γ<sub>S</sub> = γ<sub>L</sub>·cos(θ) + γ<sub>SL</sub><br>
+    θ = 180° → non-wetting (sphere) | θ &lt; 90° → wetting (spread) | θ = 0° → perfect wetting
+  </div>
+
+  <h3>Electric Double Layer (EDL)</h3>
+  <div class="key-point">
+    <strong>Stern layer:</strong> Compact, counter-ions immobilized on surface (chemical/electrical interactions)<br>
+    <strong>Diffuse layer:</strong> Counter-ions attracted by electrostatics, co-ions free to move<br>
+    <strong>Shear surface:</strong> boundary between Stern and diffuse layers<br>
+    <strong>EDL = Stern + Diffuse layers</strong>
+  </div>
+
+  <h4>Zeta (ζ) Potential</h4>
+  <ul>
+    <li>Potential at interface between stationary and mobile charges (shear surface)</li>
+    <li>Values: 0 to ±100 mV</li>
+    <li>Depends on pH and ionic strength</li>
+    <li><strong>High ζ (&gt;|30 mV|) → Repulsion (stable)</strong></li>
+    <li><strong>Low ζ (&lt;|30 mV|) → Agglomeration/sedimentation</strong></li>
+  </ul>
+
+  <h4>Debye Length (λ<sub>D</sub>)</h4>
+  <div class="formula">
+    Characteristic thickness of EDL. Distance from wall to homogeneous charge distribution.<br>
+    λ<sub>D</sub> = √(ε₀ε<sub>r</sub>k<sub>B</sub>T / 2z²F²I<sub>B</sub>) ≈ 3.04/√I<sub>B</sub> [nm] (pure water)<br>
+    Ranges: few nm (high ionic strength) to mm (low ionic strength)
+  </div>
+
+  <h3>Electrokinetic Phenomena</h3>
+  <table class="comparison">
+    <tr><th>Phenomenon</th><th>What Moves</th><th>Driving Force</th><th>Key Feature</th></tr>
+    <tr><td><strong>Electroosmosis (EOF)</strong></td><td>Fluid (bulk)</td><td>Applied electric field</td><td>Solvated ions in diffuse layer drag fluid. Flat velocity profile</td></tr>
+    <tr><td><strong>Electrophoresis (EP)</strong></td><td>Charged particles</td><td>Applied electric field</td><td>Separation by size & charge; smaller = faster</td></tr>
+    <tr><td><strong>Dielectrophoresis (DEP)</strong></td><td>Dielectric particles</td><td>Non-uniform AC electric field</td><td>pDEP (toward high E), nDEP (toward low E); frequency-dependent</td></tr>
+    <tr><td><strong>Streaming Potential</strong></td><td>Ions (creates potential)</td><td>Applied pressure gradient</td><td>"Reverse" electrokinetics; electroviscous effect</td></tr>
+  </table>
+
+  <h4>EOF Velocity</h4>
+  <div class="formula">
+    <strong>u<sub>av</sub> = −(ε₀ε<sub>r</sub>ζ/η)E<sub>z</sub> = −µ<sub>EOF</sub>·E<sub>z</sub></strong><br>
+    E<sub>z</sub> ~ 10⁴–10⁶ V/m
+  </div>
+
+  <h4>Electrophoresis Velocity</h4>
+  <div class="formula">
+    <strong>u<sub>i</sub> = µ<sub>EP</sub>·E<sub>z</sub></strong><br>
+    Under EOF: <strong>µ<sub>net</sub> = µ<sub>EP</sub> + µ<sub>EOF</sub></strong>
+  </div>
+
+  <h4>Electrowetting</h4>
+  <div class="key-point">
+    Movement of droplet by changing contact angle using electric field. Basis of <strong>digital microfluidics</strong>. <strong>EWOD</strong> (electrowetting-on-dielectric) avoids electrolysis.
+  </div>
+
+  <h3>Microvalves</h3>
+  <div class="two-col">
+    <div>
+      <h4>Passive (No Energy)</h4>
+      <ul>
+        <li><strong>Mechanical:</strong> Flap/cantilever valves, check valves (membranes), stimuli-dependent hydrogels</li>
+        <li><strong>Non-mechanical:</strong> Diffusers/nozzles, capillary (geometry-based)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Active</h4>
+      <ul>
+        <li>Pneumatic (air pressure)</li>
+        <li>Thermopneumatic (phase change)</li>
+        <li>Thermomechanical (thermal → mechanical stress)</li>
+        <li>Piezoelectric (electric → strain)</li>
+        <li>Electrostatic (opposite charges)</li>
+        <li>Electromagnetic (solenoid)</li>
+        <li>Electrochemical (electrolysis)</li>
+      </ul>
+    </div>
+  </div>
+  <p><strong>Valve parameters:</strong> Leakage, closing force, capacity, power consumption, temperature range, response time, reliability, biocompatibility</p>
+
+  <h3>Micropumps</h3>
+  <div class="two-col">
+    <div>
+      <h4>Passive</h4>
+      <ul>
+        <li>Capillary forces / surface tension driven</li>
+        <li>Paper-based microfluidics</li>
+        <li>µL or nL volumes</li>
+        <li>Requires constant refilling for continuous flow</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Active</h4>
+      <ul>
+        <li><strong>Mechanical:</strong> Diaphragm (check valves, sinusoidal flow), peristaltic (series chambers)</li>
+        <li><strong>Non-mechanical:</strong> Bubble, hydrodynamic, electroosmotic (DC/AC), electrowetting</li>
+      </ul>
+    </div>
+  </div>
+  <p><strong>Pump parameters:</strong> Pressure, size, flow rate, power consumption, design/fab complexity, materials, cost</p>
+
+  <div class="key-point">
+    <strong>DC EOP:</strong> Static field, EDL from surface charges, electrolysis risk at high V<br>
+    <strong>AC EOP:</strong> Alternating field contributes to EDL, constant flow, electrodes patterned on channel<br>
+    Nanofluidics increase pressure: ΔP<sub>max</sub> ∝ 1/d²
+  </div>
+</div>
+
+<!-- ==================== SECTION 7 ==================== -->
+<div class="section" id="s7">
+  <h2>7. 📐 Key Formulas Cheat Sheet</h2>
+  <table class="comparison">
+    <tr><th>Formula</th><th>Equation</th><th>Variables</th></tr>
+    <tr><td>Exposure Time</td><td>E = I × t</td><td>E = energy [mJ/cm²], I = intensity [mW/cm²], t = time [s]</td></tr>
+    <tr><td>Resolution Limit</td><td>b<sub>min</sub> = (3/2)√(λ(s+z/2))</td><td>λ = wavelength, s = gap, z = resist thickness</td></tr>
+    <tr><td>Selectivity</td><td>S = ER₁/ER₂</td><td>ER = etch rate</td></tr>
+    <tr><td>Anisotropy</td><td>A = 1 − ER<sub>lat</sub>/ER<sub>vert</sub></td><td></td></tr>
+    <tr><td>Viscosity</td><td>µ = τ/γ̇</td><td>τ = shear stress, γ̇ = shear rate</td></tr>
+    <tr><td>Young's Modulus</td><td>E = σ/ε</td><td>σ = stress (F/A), ε = strain (ΔL/L)</td></tr>
+    <tr><td>SAV (circular)</td><td>SAV = 2/r</td><td>r = radius</td></tr>
+    <tr><td>Reynolds Number</td><td>Re = ρvd/µ</td><td>ρ = density, v = velocity, d = channel size</td></tr>
+    <tr><td>Hagen-Poiseuille (velocity)</td><td>u(r) = (ΔP/4µl)(R²−r²)</td><td>R = radius, ΔP = pressure drop, l = length</td></tr>
+    <tr><td>Hagen-Poiseuille (flow rate)</td><td>Q = πR⁴ΔP / 8µl</td><td></td></tr>
+    <tr><td>Fick's Law</td><td>J = −D(∂C/∂x)</td><td>D = diffusion coeff., J = flux</td></tr>
+    <tr><td>Diffusion Coefficient</td><td>D = k<sub>B</sub>T/(6πµr<sub>p</sub>)</td><td>Stokes-Einstein</td></tr>
+    <tr><td>Mean Displacement</td><td>⟨x²⟩ = 2Dt</td><td></td></tr>
+    <tr><td>Young's Equation</td><td>γ<sub>S</sub> = γ<sub>L</sub>cos(θ) + γ<sub>SL</sub></td><td>Surface tensions, contact angle</td></tr>
+    <tr><td>EOF Velocity</td><td>u = −(ε₀ε<sub>r</sub>ζ/η)E<sub>z</sub></td><td>Helmholtz-Smoluchowski</td></tr>
+    <tr><td>EP Mobility</td><td>µ<sub>net</sub> = µ<sub>EP</sub> + µ<sub>EOF</sub></td><td></td></tr>
+    <tr><td>Debye Length</td><td>λ<sub>D</sub> ≈ 3.04/√I<sub>B</sub> [nm]</td><td>I<sub>B</sub> = ionic strength</td></tr>
+    <tr><td>Thermal Conductivity</td><td>k<sub>t</sub> = Qd/(A·ΔT)</td><td></td></tr>
+    <tr><td>Dielectric Constant</td><td>ε<sub>r</sub> = C<sub>m</sub>/C₀</td><td></td></tr>
+  </table>
+</div>
+
+<!-- ==================== SECTION 8 ==================== -->
+<div class="section" id="s8">
+  <h2>8. 📝 Practice Questions (30 MCQs)</h2>
+
+  <p><em>Click each question to reveal the answer!</em></p>
+
+  <style>
+    .q { margin: 12px 0; }
+    .q summary { cursor: pointer; font-weight: bold; padding: 8px; background: #edf2f7; border-radius: 6px; }
+    .q summary:hover { background: #e2e8f0; }
+    .q .answer { padding: 10px 15px; margin-top: 5px; background: #f0fff4; border-left: 3px solid #38a169; border-radius: 0 6px 6px 0; }
+    .q ol[type="A"] { padding-left: 25px; margin: 5px 0; }
+  </style>
+
+  <!-- Q1 -->
+  <details class="q">
+    <summary>Q1. What is the typical size range for BioMEMS devices?</summary>
+    <ol type="A">
+      <li>1 nm to 10 nm</li>
+      <li><strong>100 nm to 100 µm ✓</strong></li>
+      <li>1 mm to 10 mm</li>
+      <li>10 µm to 10 mm</li>
+    </ol>
+    <div class="answer">B. BioMEMS definition: at least one dimension between 100 nm and 100 µm (5 orders of magnitude).</div>
+  </details>
+
+  <!-- Q2 -->
+  <details class="q">
+    <summary>Q2. Which method is used to grow single crystal silicon ingots from a melt?</summary>
+    <ol type="A">
+      <li>Fractional distillation</li>
+      <li>Chemical Vapor Deposition</li>
+      <li><strong>Czochralski method ✓</strong></li>
+      <li>Reactive Ion Etching</li>
+    </ol>
+    <div class="answer">C. The Czochralski method: seed crystal inserted into Si melt at 1420°C, pulled upward to grow single crystal ingot.</div>
+  </details>
+
+  <!-- Q3 -->
+  <details class="q">
+    <summary>Q3. In a positive photoresist, what happens to the exposed regions after development?</summary>
+    <ol type="A">
+      <li>They become cross-linked and remain</li>
+      <li><strong>They are dissolved and removed ✓</strong></li>
+      <li>They become harder and insoluble</li>
+      <li>They change color but remain on the wafer</li>
+    </ol>
+    <div class="answer">B. Positive resist: exposed regions undergo chain scission → become soluble → dissolved by developer.</div>
+  </details>
+
+  <!-- Q4 -->
+  <details class="q">
+    <summary>Q4. SU-8 is an example of what type of photoresist?</summary>
+    <ol type="A">
+      <li>Positive resist</li>
+      <li><strong>Negative resist ✓</strong></li>
+      <li>Neutral resist</li>
+      <li>Reversible resist</li>
+    </ol>
+    <div class="answer">B. SU-8 is a negative resist — exposed parts become cross-linked and insoluble (chemical amplification).</div>
+  </details>
+
+  <!-- Q5 -->
+  <details class="q">
+    <summary>Q5. If a mask aligner has intensity of 36 mW/cm² and SU-8 80µm requires 215 mJ/cm², what is the exposure time?</summary>
+    <ol type="A">
+      <li>3 seconds</li>
+      <li><strong>6 seconds ✓</strong></li>
+      <li>12 seconds</li>
+      <li>36 seconds</li>
+    </ol>
+    <div class="answer">B. t = E/I = 215/36 ≈ 6 seconds.</div>
+  </details>
+
+  <!-- Q6 -->
+  <details class="q">
+    <summary>Q6. Which etching method uses alternating etch/passivation cycles (Bosch process) for high aspect ratios?</summary>
+    <ol type="A">
+      <li>RIE</li>
+      <li>Wet etching</li>
+      <li>Ion Beam Milling</li>
+      <li><strong>DRIE ✓</strong></li>
+    </ol>
+    <div class="answer">D. DRIE (Deep RIE) uses alternating SF₆ etching and C₄F₈ passivation (Bosch process) for high aspect ratio structures.</div>
+  </details>
+
+  <!-- Q7 -->
+  <details class="q">
+    <summary>Q7. In KOH wet etching of silicon, the (100) plane is etched at what angle relative to the (111) plane?</summary>
+    <ol type="A">
+      <li>45°</li>
+      <li><strong>54.7° ✓</strong></li>
+      <li>90°</li>
+      <li>30°</li>
+    </ol>
+    <div class="answer">B. KOH anisotropic wet etching: (100) plane etched at 54.7° with respect to the (111) plane.</div>
+  </details>
+
+  <!-- Q8 -->
+  <details class="q">
+    <summary>Q8. What is the key difference between lift-off and etching?</summary>
+    <ol type="A">
+      <li>Lift-off uses wet chemicals while etching uses dry</li>
+      <li>Lift-off is faster than etching</li>
+      <li><strong>In etching PR is a mask; in lift-off PR is a mould ✓</strong></li>
+      <li>Lift-off only works with silicon</li>
+    </ol>
+    <div class="answer">C. Etching: PR acts as protective mask. Lift-off: PR acts as sacrificial mould (opposite mask polarity). Lift-off is used when metal is hard to etch (e.g., Pt).</div>
+  </details>
+
+  <!-- Q9 -->
+  <details class="q">
+    <summary>Q9. Which deposition technique can deposit BOTH conductive and dielectric films?</summary>
+    <ol type="A">
+      <li>DC Sputtering</li>
+      <li><strong>RF Sputtering ✓</strong></li>
+      <li>Thermal Evaporation</li>
+      <li>Ion Beam Milling</li>
+    </ol>
+    <div class="answer">B. RF sputtering can deposit both conductive and dielectric films; DC sputtering is limited to metals only.</div>
+  </details>
+
+  <!-- Q10 -->
+  <details class="q">
+    <summary>Q10. What is the main advantage of ALD over other deposition methods?</summary>
+    <ol type="A">
+      <li>Very fast growth rate</li>
+      <li>No need for vacuum</li>
+      <li><strong>Digital thickness control with atomic precision ✓</strong></li>
+      <li>Works at room temperature</li>
+    </ol>
+    <div class="answer">C. ALD provides precise "digital" thickness control — each cycle deposits 0.1–3 Å, with excellent uniformity, low defects, and excellent adhesion.</div>
+  </details>
+
+  <!-- Q11 -->
+  <details class="q">
+    <summary>Q11. Silicon nitride (Si₃N₄) is commonly used as a hard mask for which etching process?</summary>
+    <ol type="A">
+      <li>DRIE</li>
+      <li>Plasma etching</li>
+      <li><strong>KOH wet etching ✓</strong></li>
+      <li>Ion beam milling</li>
+    </ol>
+    <div class="answer">C. Si₃N₄ is an excellent water and ionic barrier and serves as a hard mask for KOH etching of Si.</div>
+  </details>
+
+  <!-- Q12 -->
+  <details class="q">
+    <summary>Q12. Which thin film serves as a sacrificial layer to create suspended structures?</summary>
+    <ol type="A">
+      <li>Silicon nitride</li>
+      <li>Polysilicon</li>
+      <li><strong>PSG (Phosphosilicate Glass) ✓</strong></li>
+      <li>Chromium</li>
+    </ol>
+    <div class="answer">C. PSG softens at low temperature and has a higher etch rate than SiO₂, making it ideal as a sacrificial layer for suspended structures.</div>
+  </details>
+
+  <!-- Q13 -->
+  <details class="q">
+    <summary>Q13. PDMS is classified as what type of polymer?</summary>
+    <ol type="A">
+      <li>Thermoplastic</li>
+      <li>Thermoset</li>
+      <li><strong>Elastomer ✓</strong></li>
+      <li>Hydrogel</li>
+    </ol>
+    <div class="answer">C. PDMS is an elastomer — lightly cross-linked, can be reversibly stretched (rubber-like).</div>
+  </details>
+
+  <!-- Q14 -->
+  <details class="q">
+    <summary>Q14. Hydrogels respond to external stimuli by:</summary>
+    <ol type="A">
+      <li>Changing their crystal structure</li>
+      <li>Emitting fluorescent light</li>
+      <li><strong>Swelling or shrinking (volume change) ✓</strong></li>
+      <li>Becoming electrically conductive</li>
+    </ol>
+    <div class="answer">C. Hydrogels change hydrophilicity in response to stimuli (pH, temperature, etc.) → swell or shrink.</div>
+  </details>
+
+  <!-- Q15 -->
+  <details class="q">
+    <summary>Q15. What resolution can two-photon polymerization (2PP) achieve compared to single-photon?</summary>
+    <ol type="A">
+      <li>2PP: &gt;10 µm; Single-photon: &lt;1 µm</li>
+      <li><strong>2PP: &lt;1 µm; Single-photon: &gt;10 µm ✓</strong></li>
+      <li>Both achieve identical resolution</li>
+      <li>2PP: &gt;100 µm; Single-photon: ~1 µm</li>
+    </ol>
+    <div class="answer">B. 2PP polymerizes only at the focal point (3D writing, resolution &lt;1 µm) vs. single-photon which polymerizes along entire beam (&gt;10 µm).</div>
+  </details>
+
+  <!-- Q16 -->
+  <details class="q">
+    <summary>Q16. What is the Reynolds number for water (ρ=1000 kg/m³, µ=1 mPa·s) flowing at 1 mm/s in a 100 µm channel?</summary>
+    <ol type="A">
+      <li><strong>0.1 ✓</strong></li>
+      <li>10</li>
+      <li>100</li>
+      <li>2000</li>
+    </ol>
+    <div class="answer">A. Re = ρvd/µ = (1000)(0.001)(0.0001)/(0.001) = 0.1. Clearly laminar (Re ≪ 2000).</div>
+  </details>
+
+  <!-- Q17 -->
+  <details class="q">
+    <summary>Q17. According to Hagen-Poiseuille's law, flow rate Q is proportional to which power of the tube radius?</summary>
+    <ol type="A">
+      <li>R¹</li>
+      <li>R²</li>
+      <li>R³</li>
+      <li><strong>R⁴ ✓</strong></li>
+    </ol>
+    <div class="answer">D. Q = πR⁴ΔP/(8µl) — flow rate scales with R⁴. Doubling the radius increases flow by 16×.</div>
+  </details>
+
+  <!-- Q18 -->
+  <details class="q">
+    <summary>Q18. In the Electric Double Layer (EDL), what is the Stern layer?</summary>
+    <ol type="A">
+      <li>The bulk fluid region</li>
+      <li>The region where co-ions are dominant</li>
+      <li><strong>A compact layer of counter-ions immobilized on the surface ✓</strong></li>
+      <li>The shear surface boundary</li>
+    </ol>
+    <div class="answer">C. The Stern layer is a compact layer where counter-ions are absorbed directly into the solid surface by chemical/electrical interactions (immobilized).</div>
+  </details>
+
+  <!-- Q19 -->
+  <details class="q">
+    <summary>Q19. A zeta potential of |15 mV| indicates:</summary>
+    <ol type="A">
+      <li>Strong particle repulsion and stability</li>
+      <li><strong>Tendency toward agglomeration and sedimentation ✓</strong></li>
+      <li>No electrostatic interaction</li>
+      <li>Maximum EOF velocity</li>
+    </ol>
+    <div class="answer">B. Low ζ (&lt;|30 mV|) → insufficient repulsion → agglomeration, clustering, sedimentation. High ζ (&gt;|30 mV|) → stable.</div>
+  </details>
+
+  <!-- Q20 -->
+  <details class="q">
+    <summary>Q20. Electroosmotic flow (EOF) occurs when:</summary>
+    <ol type="A">
+      <li>A pressure gradient forces fluid through a channel</li>
+      <li>Particles are separated by size in a gel</li>
+      <li><strong>An electric field is applied and solvated ions drag the bulk fluid ✓</strong></li>
+      <li>A non-uniform AC field polarizes dielectric particles</li>
+    </ol>
+    <div class="answer">C. EOF: electric field → solvated ions in diffuse layer drag surrounding molecules → bulk flow. Described by Helmholtz-Smoluchowski equation.</div>
+  </details>
+
+  <!-- Q21 -->
+  <details class="q">
+    <summary>Q21. Which electrokinetic phenomenon uses a non-uniform AC electric field for particle manipulation?</summary>
+    <ol type="A">
+      <li>Electroosmosis</li>
+      <li>Electrophoresis</li>
+      <li><strong>Dielectrophoresis (DEP) ✓</strong></li>
+      <li>Streaming potential</li>
+    </ol>
+    <div class="answer">C. DEP uses non-uniform alternating fields. Particles feel net force depending on frequency and dielectric properties → pDEP or nDEP.</div>
+  </details>
+
+  <!-- Q22 -->
+  <details class="q">
+    <summary>Q22. EWOD stands for:</summary>
+    <ol type="A">
+      <li>Electrochemical Wet Oxidation Device</li>
+      <li><strong>Electrowetting-on-Dielectric ✓</strong></li>
+      <li>Electronic Wave Oscillation Device</li>
+      <li>Electromagnetic Wafer Observation Detector</li>
+    </ol>
+    <div class="answer">B. Electrowetting-on-Dielectric — avoids electrolysis by adding a dielectric layer. Basis of digital microfluidics.</div>
+  </details>
+
+  <!-- Q23 -->
+  <details class="q">
+    <summary>Q23. Which is NOT an advantage of silicon as a microfluidic substrate?</summary>
+    <ol type="A">
+      <li>Well-established processing</li>
+      <li>Nanometer resolution</li>
+      <li>Thermally stable to 1100°C</li>
+      <li><strong>Optically transparent ✓</strong></li>
+    </ol>
+    <div class="answer">D. Silicon is NOT optically transparent — this is a key limitation. Glass and PDMS are transparent.</div>
+  </details>
+
+  <!-- Q24 -->
+  <details class="q">
+    <summary>Q24. The surface-area-to-volume ratio for a circular microchannel is:</summary>
+    <ol type="A">
+      <li>πr</li>
+      <li>r/2</li>
+      <li><strong>2/r ✓</strong></li>
+      <li>2πr</li>
+    </ol>
+    <div class="answer">C. SAV = 2πrL/(πr²L) = 2/r. As r decreases, SAV increases dramatically → surface effects dominate.</div>
+  </details>
+
+  <!-- Q25 -->
+  <details class="q">
+    <summary>Q25. What type of thermal oxidation produces the highest quality SiO₂ film?</summary>
+    <ol type="A">
+      <li><strong>Dry oxidation ✓</strong></li>
+      <li>Wet oxidation</li>
+      <li>Pyrogenic oxidation</li>
+      <li>PECVD oxidation</li>
+    </ol>
+    <div class="answer">A. Dry oxidation (Si + O₂ → SiO₂) produces good quality and high density film. Wet is faster but lower quality.</div>
+  </details>
+
+  <!-- Q26 -->
+  <details class="q">
+    <summary>Q26. Streaming potential is a "reverse" electrokinetic phenomenon because:</summary>
+    <ol type="A">
+      <li>It requires an AC electric field</li>
+      <li><strong>Pressure-driven flow generates an electric potential (no applied E field) ✓</strong></li>
+      <li>Particles move opposite to the field</li>
+      <li>It occurs only in non-conductive fluids</li>
+    </ol>
+    <div class="answer">B. Streaming potential: pressure gradient forces fluid → counter-ions create streaming current → electric potential across channel (no applied E field).</div>
+  </details>
+
+  <!-- Q27 -->
+  <details class="q">
+    <summary>Q27. A pneumatic microvalve operates by:</summary>
+    <ol type="A">
+      <li>Piezoelectric deformation</li>
+      <li>Electrostatic attraction</li>
+      <li><strong>Application of air/gas pressure to a flexible membrane ✓</strong></li>
+      <li>Phase change of a polymer</li>
+    </ol>
+    <div class="answer">C. Pneumatic valves use air or gas pressure on flexible membranes to open/close flow.</div>
+  </details>
+
+  <!-- Q28 -->
+  <details class="q">
+    <summary>Q28. According to Fick's Law, what does a steeper concentration gradient result in?</summary>
+    <ol type="A">
+      <li>Slower diffusion</li>
+      <li><strong>Higher diffusion flux ✓</strong></li>
+      <li>No change in diffusion</li>
+      <li>Turbulent flow</li>
+    </ol>
+    <div class="answer">B. J = −D(∂C/∂x). Higher concentration gradient (∂C/∂x) → higher diffusion flux J.</div>
+  </details>
+
+  <!-- Q29 -->
+  <details class="q">
+    <summary>Q29. Which CVD variant operates at the lowest temperature?</summary>
+    <ol type="A">
+      <li>APCVD</li>
+      <li>LPCVD</li>
+      <li><strong>PECVD ✓</strong></li>
+      <li>All CVD variants require the same temperature</li>
+    </ol>
+    <div class="answer">C. PECVD uses plasma to enhance chemical reactions, allowing lower deposition temperatures than LPCVD (which needs 400–800°C).</div>
+  </details>
+
+  <!-- Q30 -->
+  <details class="q">
+    <summary>Q30. In microfluidics, which design mode uses electrokinetics and discrete sites with no continuous flow?</summary>
+    <ol type="A">
+      <li>Continuous flow</li>
+      <li>Droplet-based</li>
+      <li><strong>Digital microfluidics ✓</strong></li>
+      <li>Peristaltic flow</li>
+    </ol>
+    <div class="answer">C. Digital microfluidics: droplet-based, no continuous flow, discrete sites, controlled by electrokinetics (EWOD).</div>
+  </details>
+
+</div>
+
+<div class="section">
+  <h2>🎯 Last-Minute Exam Tips</h2>
+  <div class="exam-tip">
+    <strong>High-yield topics to review:</strong>
+    <ul>
+      <li>Positive vs. Negative photoresist (what dissolves, what stays)</li>
+      <li>Etching methods comparison (wet vs. dry, isotropic vs. anisotropic)</li>
+      <li>Deposition methods (PVD vs. CVD vs. ALD — pros/cons)</li>
+      <li>Reynolds number calculation and significance (Re &lt; 2000 = laminar)</li>
+      <li>Hagen-Poiseuille: Q ∝ R⁴</li>
+      <li>EDL structure: Stern → shear surface → diffuse → bulk</li>
+      <li>Electrokinetic phenomena: EOF vs. EP vs. DEP vs. streaming potential</li>
+      <li>Zeta potential: |30 mV| threshold for stability</li>
+      <li>Polymer types: thermoplastic vs. elastomer vs. thermoset</li>
+      <li>Microvalve & micropump types (passive vs. active)</li>
+    </ul>
+  </div>
+</div>
+
+<p style="text-align:center; color:#a0aec0; padding: 20px;">Good luck on your exam! 🍀</p>
+</div>
+</body>
+</html>
